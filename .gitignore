@@ -1,0 +1,44 @@
+# PyCharm
+.idea/
+
+# Compiled python files
+*.py[cod]
+
+# Translated files
+*.mo
+*.pot
+
+.env
+tmp/
+# Config directory
+
+conf/**
+!conf/.gitkeep
+
+# Empty var directories
+
+var/cache/**
+!var/cache/.gitkeep
+
+var/log/**
+!var/log/.gitkeep
+
+var/media/**
+!var/media/.gitkeep
+
+var/static/**
+!var/static/.gitkeep
+
+var/tmp/**
+!var/tmp/.gitkeep
+
+var/dev/**
+!var/dev/.gitkeep
+
+# Touch reload file
+var/reload
+
+docker-compose*override.yml
+
+#src/templates/index.html
+src/templates/front/index.html

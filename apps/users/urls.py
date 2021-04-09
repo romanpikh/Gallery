@@ -6,7 +6,7 @@ from apps.users.views import RegistrationView
 
 urlpatterns = [
     path('signup/', RegistrationView.as_view(), name='account_signup'),
-    path('sigin/', LoginView.as_view()),
+    path('sigin/', LoginView.as_view(), name="sigin"),
     re_path(r'^account-confirm-email/(?P<key>[-:\w]+)/$',
             VerifyEmailView.as_view(), name='account_confirm_email'),
 

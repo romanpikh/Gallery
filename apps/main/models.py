@@ -54,6 +54,7 @@ class Bookmark(models.Model):
 
     class Meta:
         verbose_name_plural = "Bookmarks"
+        unique_together = (("photo", "owner"),)
 
     def __str__(self):
         return f'User: {self.owner}'

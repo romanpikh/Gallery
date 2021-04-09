@@ -1,6 +1,7 @@
 from django.test import TestCase
 
 # Create your tests here.
+from django.urls import reverse
 from rest_framework import status
 from rest_framework.authtoken.models import Token
 
@@ -67,3 +68,15 @@ class RegistrationTest(TestCase):
                 "password2": "pass_strong", "first_name": "my_name", "last_name": "my_last_name"}
         response = self.client.post("/api/signup/", data)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+
+class LoginTest(TestCase):
+
+    def setUp(self):
+        self.login_url = reverse('sigin')
+        self.user = User.objects.create_user(username="test_user", password="1234233", email="email@email.com")
+
+    def test_login(self):
+        data = {"username": "test_user", "email": "email@email.com", "password": "1234233"}
+        response = self.client.post(self.login_url, data)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)

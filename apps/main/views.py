@@ -96,11 +96,6 @@ class BookmarkViewSet(generics.CreateAPIView):
     queryset = Bookmark.objects.all()
     permission_classes = [IsAuthenticated]
 
-    def perform_create(self, serializer):
-        if Bookmark.objects.filter(photo_id=self.kwargs["photo_id"], owner=self.request.user):
-            return Response(status=400)
-        serializer.save(photo_id=self.kwargs["photo_id"])
-
 
 class DeleteBookmarkViewSet(generics.DestroyAPIView):
     """
